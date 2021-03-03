@@ -1,4 +1,4 @@
-<%@ page import="com.paf4_2.*"%>
+<%@ page import="com.paf3.model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -53,14 +53,14 @@
 							+ "Item name: <input name='itemName' type='text' class='form-control col-md-3'><br> "
 							+ "Item price: <input name='itemPrice' type='text' class='form-control col-md-3'><br> "
 							+ "Item description: <input name='itemDesc' type='text' class='form-control col-md-3'><br> "
-							+ "<input name='btnSubmit' type='submit' value='Save'> " + "</form>");
+							+ "<input name='btnSubmit' type='submit' value='Save' class='btn btn-primary'> " + "</form>");
 						}
 					} else {
 						out.print("<form method='post' action='Items.jsp'> " + "<input name='action' value='insert' type='hidden'> "
-						+ "Item code: <input name='itemCode' type='text'><br>"
-						+ "Item name: <input name='itemName' type='text'><br> "
-						+ "Item price: <input name='itemPrice' type='text'><br> "
-						+ "Item description: <input name='itemDesc' type='text'><br> "
+						+ "Item code: <input name='itemCode' type='text'class='form-control col-md-3'><br>"
+						+ "Item name: <input name='itemName' type='text'class='form-control col-md-3'><br> "
+						+ "Item price: <input name='itemPrice' type='text'class='form-control col-md-3'><br> "
+						+ "Item description: <input name='itemDesc' type='text'class='form-control col-md-3'><br> "
 						+ "<input name='btnSubmit' type='submit' value='Save' class='btn btn-primary'> " + "</form>");
 					}
 					%>
@@ -68,20 +68,18 @@
 				<br>
 				<p>
 					<%
-							if (session.getAttribute("statusMsg") != null) {
+						if (session.getAttribute("statusMsg") != null && !session.getAttribute("statusMsg").toString().equals("")) {
 							out.print("<div class='alert alert-success'>" + session.getAttribute("statusMsg") + "</div>");
 							session.setAttribute("statusMsg", null);
 						}
-						%>
+					%>
 				</p>
 
 				<br>
-				<%
+					<%
 						Item itemObj = new Item();
-					out.print(itemObj.readItems());
+						out.print(itemObj.readItems());
 					%>
-
-
 			</div>
 		</div>
 	</div>

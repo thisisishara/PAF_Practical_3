@@ -71,7 +71,8 @@ public class Item {
 				return "Error while connecting to the database for reading.";
 			}
 			// Prepare the HTML table to be displayed
-			output = "<table  class='table table-dark table-striped'><tr><th>Item Code</th>"
+			output = "<h1>Existing Items</h1>"
+					+ "<table  class='table table-dark table-striped'><tr><th>Item Code</th>"
 					+"<th>Item Name</th><th>Item Price</th>"
 					+ "<th>Item Description</th>"
 					+ "<th>Update</th><th>Remove</th></tr>";
@@ -118,6 +119,7 @@ public class Item {
 			output = "Error while reading the items.";
 			System.err.println(e.getMessage());
 		}
+		
 		return output;
 	}
 
@@ -218,13 +220,13 @@ public class Item {
 				String itemDesc = rs.getString("itemDesc");
 
 				output += "<form method='post' action='Items.jsp'> "
-						+ "Item code: <input name='itemCode' type='text' value='"+ itemCode +"'><br>" 
-						+ "Item name: <input name='itemName' type='text' value='"+ itemName +"'><br> "
-						+ "Item price: <input name='itemPrice' type='text' value='"+ itemPrice +"'><br> "
-						+ "Item description: <input name='itemDesc' type='text' value='"+ itemDesc +"'><br> "
+						+ "Item code: <input name='itemCode' type='text' value='"+ itemCode +"' class='form-control col-md-3'><br>" 
+						+ "Item name: <input name='itemName' type='text' value='"+ itemName +"' class='form-control col-md-3'><br> "
+						+ "Item price: <input name='itemPrice' type='text' value='"+ itemPrice +"' class='form-control col-md-3'><br> "
+						+ "Item description: <input name='itemDesc' type='text' value='"+ itemDesc +"' class='form-control col-md-3'><br> "
 						+ "<input name='action' value='update' type='hidden'> "
 						+ "<input name='itemID' value='"+ itemID +"' type='hidden'> "
-						+ "<input name='btnSubmit' type='submit' value='Update Item "+ id +"'> "
+						+ "<input name='btnSubmit' type='submit' value='Update Item "+ id +"'  class='btn btn-warning'> "
 						+ "</form> <br>"
 						+ "<a href='Items.jsp'>Cancel Updating</a>";
 			}
