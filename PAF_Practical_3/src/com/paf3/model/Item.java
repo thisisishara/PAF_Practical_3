@@ -71,7 +71,7 @@ public class Item {
 				return "Error while connecting to the database for reading.";
 			}
 			// Prepare the HTML table to be displayed
-			output = "<table border='1'><tr><th>Item Code</th>"
+			output = "<table  class='table table-dark table-striped'><tr><th>Item Code</th>"
 					+"<th>Item Name</th><th>Item Price</th>"
 					+ "<th>Item Description</th>"
 					+ "<th>Update</th><th>Remove</th></tr>";
@@ -97,12 +97,12 @@ public class Item {
 
 				// buttons
 				output += "<td><form method='post' action='Items.jsp'>"
-						+ "<input name='btnUpdate' type='submit' value='Update'>"
+						+ "<input name='btnUpdate' type='submit' value='Update' class='btn btn-warning'>"
 						+ "<input name='action' value='select' type='hidden'>"
 						+ "<input name='itemID' type='hidden' value='" + itemID + "'>" 
 						+ "</form></td>"
 						+ "<td><form method='post' action='Items.jsp'>"
-						+ "<input name='btnRemove' type='submit' value='Remove'>"
+						+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
 						+ "<input name='itemID' type='hidden' value='" + itemID + "'>" 
 						+ "<input name='action' value='remove' type='hidden'>"
 						+ "</form></td></tr>";
