@@ -44,7 +44,7 @@ public class Item {
 			preparedStmt.setString(2, code);
 			preparedStmt.setString(3, name);
 			preparedStmt.setDouble(4, Double.parseDouble(price));
-			preparedStmt.setString(5, desc); 
+			preparedStmt.setString(5, desc);
 
 			//execute the statement
 			preparedStmt.execute();
